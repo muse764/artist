@@ -1,0 +1,40 @@
+{
+  "name": "Node.js & PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "formulahendry.code-runner",
+        "streetsidesoftware.code-spell-checker",
+        "adpyke.codesnap",
+        "aaron-bond.better-comments",
+        "antfu.browse-lite",
+        "ms-azuretools.vscode-docker",
+        "EditorConfig.EditorConfig",
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "GitHub.copilot",
+        "eamodio.gitlens",
+        "kisstkondoros.vscode-gutter-preview",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "PKief.material-icon-theme",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "firefox-devtools.vscode-firefox-debug",
+        "dsznajder.es7-react-js-snippets",
+        "vscodeshift.material-ui-snippets",
+        "christian-kohler.npm-intellisense",
+        "Gruntfuggly.todo-tree",
+        "redhat.vscode-yaml",
+        "bradlc.vscode-tailwindcss",
+        "humao.rest-client"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  }
+}
