@@ -1,9 +1,0 @@
-{
-  "prettier.prettierPath": "/usr/local/share/npm-global/bin/prettier",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true,
-    "source.sortMembers": true
-  }
-}
