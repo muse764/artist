@@ -87,7 +87,6 @@ export default function TracksPage() {
   const handleUpdateModalOpen = (row: any) => {
     setUpdateModalOpen(true);
   };
-  const handleUpdateModalClose = () => setUpdateModalOpen(false);
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1 },
@@ -146,9 +145,14 @@ export default function TracksPage() {
       track_number: Yup.string().max(255).required('Track number is required'),
       albumId: Yup.string().max(255).required('Album is required'),
     }),
-    onSubmit: async (values: any) => {
+    onSubmit: async (values: {
+      name: string;
+      file: string;
+      track_number: string;
+      albumId: string;
+    }) => {
       try {
-        const response = await axios.post(
+        await axios.post(
           `${api_url}/albums/${values.albumId}/tracks`,
           {
             tracks: [
@@ -168,7 +172,9 @@ export default function TracksPage() {
         );
         retrieveTracks();
         setCreateModalOpen(false);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 

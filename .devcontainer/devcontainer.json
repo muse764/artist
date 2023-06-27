@@ -3,38 +3,41 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install -g npm@latest && npm i -g prettier eslint && npm install pm2 -g && npm i -g pnpm && pnpm install",
   "customizations": {
     "vscode": {
       "extensions": [
+        "activitywatch.aw-watcher-vscode",
+        "aaron-bond.better-comments",
+        "antfu.browse-lite",
+        "Catppuccin.catppuccin-vsc",
         "formulahendry.code-runner",
         "streetsidesoftware.code-spell-checker",
         "adpyke.codesnap",
-        "aaron-bond.better-comments",
-        "antfu.browse-lite",
-        "ms-azuretools.vscode-docker",
+        "naumovs.color-highlight",
         "EditorConfig.EditorConfig",
         "usernamehw.errorlens",
         "dbaeumer.vscode-eslint",
+        "github.vscode-github-actions",
         "GitHub.copilot",
+        "GitHub.copilot-chat",
         "eamodio.gitlens",
         "kisstkondoros.vscode-gutter-preview",
         "VisualStudioExptTeam.vscodeintellicode",
         "PKief.material-icon-theme",
         "christian-kohler.path-intellisense",
         "esbenp.prettier-vscode",
+        "humao.rest-client",
+        "WakaTime.vscode-wakatime",
+        "anseki.vscode-color",
         "firefox-devtools.vscode-firefox-debug",
         "dsznajder.es7-react-js-snippets",
-        "vscodeshift.material-ui-snippets",
-        "christian-kohler.npm-intellisense",
         "Gruntfuggly.todo-tree",
+        "antfu.vite",
         "redhat.vscode-yaml",
-        "bradlc.vscode-tailwindcss",
-        "humao.rest-client"
+        "ms-azuretools.vscode-docker"
       ],
-      "settings": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-      }
+      "settings": {}
     }
   }
 }

@@ -5,7 +5,6 @@ import {
   MenuItem,
   Stack,
   Toolbar,
-  Typography,
 } from '@mui/material';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';

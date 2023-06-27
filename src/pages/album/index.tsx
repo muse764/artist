@@ -30,8 +30,9 @@ export default function AlbumPage() {
   const [tracks, setTracks] = useState([]);
   const [userId, setUserId] = useState('');
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const [updateModalOpen, setUpdateModalOpen] = useState(false);
-  const [createModalOpen, setCreateModalOpen] = useState(false);
+  const [updateTrackModalOpen, setUpdateTrackModalOpen] = useState(false);
+  const [createTrackModalOpen, setCreateTrackModalOpen] = useState(false);
+  const [createImageModalOpen, setCreateImageModalOpen] = useState(false);
 
   const album_id = window.location.pathname.split('/')[2];
 
@@ -83,13 +84,13 @@ export default function AlbumPage() {
     getUserId();
   }, []);
 
-  const handleCreateModalOpen = () => setCreateModalOpen(true);
-  const handleCreateModalClose = () => setCreateModalOpen(false);
+  const handleCreateTrackModalOpen = () => setCreateTrackModalOpen(true);
+  const handleCreateModalClose = () => setCreateTrackModalOpen(false);
 
-  const handleUpdateModalOpen = (row: any) => {
-    setUpdateModalOpen(true);
+  const handleUpdateTrackModalOpen = (row: any) => {
+    setUpdateTrackModalOpen(true);
   };
-  const handleUpdateModalClose = () => setUpdateModalOpen(false);
+  const handleUpdateModalClose = () => setUpdateTrackModalOpen(false);
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1 },
@@ -122,7 +123,7 @@ export default function AlbumPage() {
           <NavLink to={`/track/${params.row.id}`}>
             <ListAltIcon />
           </NavLink>
-          <IconButton onClick={() => handleUpdateModalOpen(params.row)}>
+          <IconButton onClick={() => handleUpdateTrackModalOpen(params.row)}>
             <EditIcon />
           </IconButton>
           <IconButton onClick={() => deleteTrack(params.row.id)}>
@@ -167,7 +168,7 @@ export default function AlbumPage() {
           }
         );
         retrieveTracks();
-        setCreateModalOpen(false);
+        setCreateTrackModalOpen(false);
       } catch (error) {}
     },
   });
@@ -194,7 +195,7 @@ export default function AlbumPage() {
                       <PlusIcon />
                     </SvgIcon>
                   }
-                  onClick={handleCreateModalOpen}
+                  onClick={handleCreateTrackModalOpen}
                   variant="contained"
                 >
                   Add
@@ -206,11 +207,34 @@ export default function AlbumPage() {
             </Card>
           </Stack>
         </Container>
+        <Container maxWidth="xl">
+          <Stack spacing={3}>
+            <Stack direction="row" justifyContent="space-between" spacing={4}>
+              <Stack spacing={1}>
+                <Typography variant="h4">Images</Typography>
+              </Stack>
+              <div>
+                <Button
+                  startIcon={
+                    <SvgIcon fontSize="small">
+                      <PlusIcon />
+                    </SvgIcon>
+                  }
+                  onClick={handleCreateTrackModalOpen}
+                  variant="contained"
+                >
+                  Add
+                </Button>
+              </div>
+            </Stack>
+            <Card>{/* <DataGrid rows={rows} columns={columns} /> */}</Card>
+          </Stack>
+        </Container>
       </Box>
 
       <TrackModal
         handleModalClose={handleCreateModalClose}
-        modalOpen={createModalOpen}
+        modalOpen={createTrackModalOpen}
         submitLabel="Create"
         formik={createTrackFormik}
         title="Create Track"
@@ -218,7 +242,7 @@ export default function AlbumPage() {
 
       <TrackModal
         handleModalClose={handleUpdateModalClose}
-        modalOpen={updateModalOpen}
+        modalOpen={updateTrackModalOpen}
         formik={createTrackFormik}
         submitLabel="Update"
         title="Update Track"

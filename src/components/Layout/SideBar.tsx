@@ -6,13 +6,11 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Toolbar,
   Typography,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import HomeIcon from '@mui/icons-material/Home';
 
 const items = [
   {
@@ -41,11 +39,6 @@ export default function SideBar({ drawerWidth }: { drawerWidth: number }) {
           width: drawerWidth,
           boxSizing: 'border-box',
         },
-        // make sidebar transparent
-        // "& .MuiDrawer-paperAnchorDockedLeft": {
-        //   borderRight: "none",
-        //   backgroundColor: "transparent",
-        // },
       }}
     >
       <Toolbar>
@@ -59,16 +52,13 @@ export default function SideBar({ drawerWidth }: { drawerWidth: number }) {
       >
         <CardContent>
           <List>
-            {items.map((item: any) => (
+            {items.map((item: { title: string; path: string }) => (
               <ListItem
                 key={item.title}
                 disablePadding
                 sx={{ display: 'block' }}
               >
                 <ListItemButton>
-                  {/* <ListItemIcon>
-                    <HomeIcon />
-                  </ListItemIcon> */}
                   <ListItemText>
                     <NavLink to={item.path}>{item.title}</NavLink>
                   </ListItemText>

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+pm2 --name admin start pnpm -- dev --host 80

@@ -7,4 +7,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../..:/workspaces:cached
+    networks:
+      apinetwork:
+        ipv4_address: 172.52.0.10
     command: sleep infinity
+
+networks:
+  apinetwork:
+    ipam:
+      config:
+        - subnet: 172.52.0.0/16
